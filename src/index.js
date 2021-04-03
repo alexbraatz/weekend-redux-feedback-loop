@@ -5,7 +5,7 @@ import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import logger from 'redux-logger' 
+import logger from 'redux-logger';
 
 const feedback = ( state=[], action )=>{
     if( action.type === 'setFeedback'){
@@ -22,13 +22,18 @@ let userFeedback = {
 }
 
 const userGiveFeedback = ( state=userFeedback, action )=>{
-    console.log( 'in userGiveFeedback', state );
+    console.log( 'in userGiveFeedback state:', state );
+    if( action.type === 'addfeelings' ){
+        console.log( 'in userGiveFeedback action:', action.payload );
+        userFeedback.feeling = action.payload
+    }
     return state;
 }
 
 const store = createStore(
     combineReducers({
         feedback: feedback,
+        userGiveFeedback: userGiveFeedback
     }),
     applyMiddleware( logger )
 )
