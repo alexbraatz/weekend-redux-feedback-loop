@@ -1,5 +1,5 @@
-import { useHistory, Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { useDispatch } from "react-redux";
 
 function Feeling(){
@@ -8,7 +8,6 @@ function Feeling(){
 
     let [ feelings, setFeelings ] = useState( '' );
 
-    const history = useHistory();
 
     const addFeelings = () => {
 

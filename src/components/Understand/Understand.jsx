@@ -1,5 +1,5 @@
-import { useHistory, Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import {  Link } from 'react-router-dom';
+import { useState } from 'react';
 import { useDispatch } from "react-redux";
 
 function Understand(){
@@ -7,8 +7,6 @@ function Understand(){
     const dispatch = useDispatch();
 
     let [ understand, setUnderstand ] = useState( '' );
-
-    const history = useHistory();
 
     const addUnderstanding = () => {
         dispatch({ type: 'addunderstanding', payload: understand })

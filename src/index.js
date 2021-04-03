@@ -29,6 +29,12 @@ const userGiveFeedback = ( state=userFeedback, action )=>{
     if( action.type === 'addunderstanding'){
         userFeedback.understanding = action.payload
     }
+    if( action.type === 'addsupported'){
+        userFeedback.support = action.payload
+    }
+    if( action.type === 'addcomments' ){
+        userFeedback.comments = action.payload
+    }
     return state;
 }
 

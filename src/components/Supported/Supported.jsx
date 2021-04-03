@@ -1,22 +1,28 @@
-import { useHistory } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useDispatch } from "react-redux";
 
-function Understand(){
+function Supported(){
 
-    const history = useHistory();
+    const dispatch = useDispatch();
 
-    const goToComments = () => {
-        history.push( '/comments' );
+    let [ support, setSupport ] = useState( '' );
+
+    const addSupported = () => {
+        dispatch({ type: 'addsupported', payload: support })
     }
     return (
         <>
             <h2>How well are you being supported?</h2>
 
             <label>Support?</label><br />
-            <input type='number'></input>
-            <button onClick={ (event) => goToComments() }>Next</button>
+            <input type='number' onChange={ ( event ) => setSupport( event.target.value ) }></input>
+            <Link to='/comments'>
+            <button onClick={ (event) => addSupported () }>Next</button>
+            </Link>
         </>
 
     )
 }
 
-export default Understand;
+export default Supported;
