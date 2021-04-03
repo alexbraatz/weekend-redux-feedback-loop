@@ -12,6 +12,7 @@ import './App.css';
 import Admin from '../Admin/Admin';
 import Feeling from '../Feeling/Feeling';
 import Understand from '../Understand/Understand';
+import Supported from '../Supported/Supported';
 
 
 function App() {
@@ -46,6 +47,8 @@ function App() {
         <Route exact path='/admin' component={ Admin } />
 
         <Route exact path='/understand' component={ Understand } />
+
+        <Route exact path='/supported' component={ Supported } />
 
       </HashRouter>
       
