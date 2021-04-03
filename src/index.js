@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger' 
 
 const feedback = ( state=[], action )=>{
-    console.log( 'in feedback reducer state:', state );
     if( action.type === 'setFeedback'){
         state = [ ...state, action.payload ]
     }

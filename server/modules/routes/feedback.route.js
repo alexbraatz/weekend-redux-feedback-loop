@@ -3,7 +3,6 @@ let router = express.Router();
 const pool = require( '../pool' );
 
 router.get( '/', ( req, res )=>{
-    console.log( 'in /feedback GET:', req.body );
     let sqlCmd = `SELECT * FROM feedback`;
     pool.query( sqlCmd ).then( ( results )=>{
         res.send( results.rows );

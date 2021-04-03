@@ -16,25 +16,19 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const [ feedback, setFeedback ] = useState( [] );
-
   useEffect( ()=>{
     getFeedback()
   }, [])
 
   const getFeedback = () =>{
     axios.get( '/feedback').then( ( response )=>{
-      console.log( 'back from GET in getFeedback', response.data );
       // this dispatch is needed to update redux store globally
       dispatch( { type: 'setFeedback', payload: response.data })
-      setFeedback( response.data );
     }).catch( ( error )=>{
       console.log( error );
       alert( 'getFeedback function in app.jsx error!')
     })
   }
-
-  console.log( 'in app.jsx feedback', feedback );
 
   return (
     <div className='App'>

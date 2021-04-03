@@ -2,11 +2,8 @@ import { useSelector } from 'react-redux';
 
 function Admin(){
     let userFeedback = useSelector( ( store )=>{
-        console.log( 'in userFeedback', store.feedback );
         return store.feedback
     })
-
-    userFeedback;
 
     return(
         <>
@@ -21,6 +18,19 @@ function Admin(){
                         <th>Delete</th>
                     </tr>
                 </thead>
+                <tbody>
+                    {userFeedback.map( ( feedback, i ) =>{
+                        return (
+                            <tr key={  feedback[i].id  }>
+                                <td>{ feedback[i].feeling }</td>
+                                <td>{ feedback[i].understanding }</td>
+                                <td>{ feedback[i].support }</td>
+                                <td>{ feedback[i].commments }</td>
+                                <td><button>Delete</button></td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
             </table>
         </>
     )
