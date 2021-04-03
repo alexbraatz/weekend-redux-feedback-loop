@@ -9,8 +9,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 
 // import components 
-import Feeling from '../Feeling/Feeling';
 import Admin from '../Admin/Admin';
+import Feeling from '../Feeling/Feeling';
+import Understand from '../Understand/Understand';
+
 
 function App() {
 
@@ -42,6 +44,8 @@ function App() {
         <Route exact path='/' component={ Feeling } />
 
         <Route exact path='/admin' component={ Admin } />
+
+        <Route exact path='/understand' component={ Understand } />
 
       </HashRouter>
       
