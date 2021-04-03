@@ -14,6 +14,18 @@ const feedback = ( state=[], action )=>{
     return state;
 }
 
+let userFeedback = {
+    feeling: 0,
+    understanding: 0,
+    support: 0,
+    comments: ""
+}
+
+const userGiveFeedback = ( state=userFeedback, action )=>{
+    console.log( 'in userGiveFeedback', state );
+    return state;
+}
+
 const store = createStore(
     combineReducers({
         feedback: feedback,
