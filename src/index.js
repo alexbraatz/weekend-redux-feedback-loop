@@ -24,8 +24,10 @@ let userFeedback = {
 const userGiveFeedback = ( state=userFeedback, action )=>{
     console.log( 'in userGiveFeedback state:', state );
     if( action.type === 'addfeelings' ){
-        console.log( 'in userGiveFeedback action:', action.payload );
         userFeedback.feeling = action.payload
+    }
+    if( action.type === 'addunderstanding'){
+        userFeedback.understanding = action.payload
     }
     return state;
 }

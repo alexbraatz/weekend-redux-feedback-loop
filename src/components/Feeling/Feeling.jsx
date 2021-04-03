@@ -1,30 +1,18 @@
 import { useHistory, Link } from 'react-router-dom';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
 
 function Feeling(){
 
     const dispatch = useDispatch();
 
-    // useEffect(()=>{
-    //     // addFeelings()
-    // }, [])
-
     let [ feelings, setFeelings ] = useState( '' );
 
     const history = useHistory();
 
-    const addFeelingsTwo = useCallback(
-        () => dispatch( {type: 'addfeelings', payload: userFeelings.feelings } ), [dispatch]
-    )
-
     const addFeelings = () => {
 
-        const userFeelings= {
-            feelings: feelings 
-        }
-        console.log( 'in addFeelings', userFeelings )
-        dispatch({ type: 'addfeelings', payload: userFeelings.feelings })
+        dispatch({ type: 'addfeelings', payload: feelings })
     }
 
 

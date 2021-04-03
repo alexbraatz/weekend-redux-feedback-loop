@@ -1,11 +1,17 @@
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useDispatch } from "react-redux";
 
 function Understand(){
 
+    const dispatch = useDispatch();
+
+    let [ understand, setUnderstand ] = useState( '' );
+
     const history = useHistory();
 
-    const goToSupported = () => {
-        history.push('/supported');
+    const addUnderstanding = () => {
+        dispatch({ type: 'addunderstanding', payload: understand })
     }
 
     return(
@@ -13,8 +19,10 @@ function Understand(){
             <h2>How well are you understading the content?</h2>
 
             <label>Understanding?</label><br />
-            <input type='number'></input>
-            <button onClick={ (event) => goToSupported() }>Next</button>
+            <input type='number' onChange={ ( event ) => setUnderstand( event.target.value ) }></input>
+            <Link to='/supported'>
+                <button onClick={ (event) => addUnderstanding() }>Next</button>
+            </Link>
         </>
 
     )
