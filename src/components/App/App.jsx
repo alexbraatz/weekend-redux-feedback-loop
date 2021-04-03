@@ -14,6 +14,8 @@ import Feeling from '../Feeling/Feeling';
 import Understand from '../Understand/Understand';
 import Supported from '../Supported/Supported';
 import Comments from '../Comments/Comments';
+import Review from '../Review/Review';
+import ThankYou from '../ThankYou/ThankYou';
 
 
 function App() {
@@ -52,6 +54,10 @@ function App() {
         <Route exact path='/supported' component={ Supported } />
 
         <Route exact path='/comments' component={ Comments } />
+
+        <Route exact path='/review' component={ Review } />
+
+        <Route exact path='/thankyou' component={ ThankYou } />
 
       </HashRouter>
       
