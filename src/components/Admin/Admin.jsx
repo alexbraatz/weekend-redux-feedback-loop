@@ -1,6 +1,9 @@
-import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 function Admin(){
+    // let userFeedback = useSelector( ( store )=>{
+    //     return store.feedback;
+    // })
     return(
         <>
             <h2>Feedback Results!</h2>

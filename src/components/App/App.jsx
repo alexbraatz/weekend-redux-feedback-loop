@@ -14,6 +14,22 @@ import Admin from '../Admin/Admin';
 
 function App() {
 
+  const [ feedback, setFeedback ] = useState( [] );
+
+  useEffect( ()=>{
+    getFeedback()
+  }, [])
+
+  const getFeedback = () =>{
+    axios.get( '/feedback').then( ( response )=>{
+      console.log( 'back from GET in getFeedback', response.data );
+      setFeedback( response.data );
+    }).catch( ( error )=>{
+      console.log( error );
+      alert( 'getFeedback function in app.jsx error!')
+    })
+  }
+
   return (
     <div className='App'>
       <header className='App-header'>
