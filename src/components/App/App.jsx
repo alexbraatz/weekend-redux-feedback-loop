@@ -13,6 +13,7 @@ import Admin from '../Admin/Admin';
 import Feeling from '../Feeling/Feeling';
 import Understand from '../Understand/Understand';
 import Supported from '../Supported/Supported';
+import Comments from '../Comments/Comments';
 
 
 function App() {
@@ -49,6 +50,8 @@ function App() {
         <Route exact path='/understand' component={ Understand } />
 
         <Route exact path='/supported' component={ Supported } />
+
+        <Route exact path='/comments' component={ Comments } />
 
       </HashRouter>
       
