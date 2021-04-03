@@ -3,7 +3,7 @@ function Feeling(){
         <>
             <h2>How are you feeling today?</h2>
 
-            <lable>Feeling?</lable><br />
+            <label>Feeling?</label><br />
             <input type='number'></input>
             <button>Next</button>
         </>
