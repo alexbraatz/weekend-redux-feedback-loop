@@ -22,7 +22,6 @@ let userFeedback = {
 }
 
 const userGiveFeedback = ( state=userFeedback, action )=>{
-    console.log( 'in userGiveFeedback state:', state );
     if( action.type === 'addfeelings' ){
         userFeedback.feeling = action.payload
     }
