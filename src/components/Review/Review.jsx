@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import {  Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Review(){
 
@@ -7,8 +9,14 @@ function Review(){
         return store.userGiveFeedback
     })
 
-    const goToThankYou = () => {
-        history.push( '/thankyou' );
+    const submitFeedback = () => {
+        console.log( 'in submitFeedback', getUserFeedback );
+        axios.post( '/feedback', getUserFeedback ).then( ( response )=>{
+            console.log( 'back from POST with', response );
+        }).catch( ( error )=>{
+            console.log( error );
+            alert( 'oi! issue with submitFeedback POST route');
+        })
     }
     return (
         <>
@@ -19,7 +27,9 @@ function Review(){
                 <p>Support: { getUserFeedback.support }</p>
                 <p>Comments: { getUserFeedback.comments }</p>
             </div>
-            <button onClick={ (event) => goToThankYou() }>Submit</button>
+            <Link to='/thankyou'>
+                <button onClick={ (event) => submitFeedback() }>Submit</button>
+            </Link>
         </>
 
     )
