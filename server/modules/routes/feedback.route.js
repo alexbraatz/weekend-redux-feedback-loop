@@ -14,8 +14,8 @@ router.get( '/', ( req, res )=>{
 
 router.post( '/', ( req, res )=>{
     console.log( 'in POST route', req. body );
-    let sqlPost = `INSERT INTO "feedback" (feeling, understading, support, comments ) VALUES ( $1, $2, $3, $4 )`
-    pool.query( sqlPost, [ req.body.feeling, req.body.understading, req.body.support, req.body.comments ]).then( ( results )=>{
+    let sqlPost = `INSERT INTO "feedback" (feeling, understanding, support, comments ) VALUES ( $1, $2, $3, $4 )`
+    pool.query( sqlPost, [ req.body.feeling, req.body.understanding, req.body.support, req.body.comments ]).then( ( results )=>{
         res.sendStatus( 200 );
     }).catch( ( error )=>{
         console.log( error );
