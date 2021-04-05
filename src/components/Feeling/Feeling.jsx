@@ -14,14 +14,13 @@ function Feeling(){
         dispatch({ type: 'addfeelings', payload: feelings })
     }
 
-
     return(
         <>
             <h2>How are you feeling today?</h2>
 
             <label>Feeling?</label><br />
             <input type='number' onChange={ ( event ) => setFeelings( event.target.value ) }></input>
-            <Link to='/understand'>
+            <Link to={ feelings ? '/understand' : '/'}>
                 <button onClick={ addFeelings() }>Next</button>
             </Link>
         </>

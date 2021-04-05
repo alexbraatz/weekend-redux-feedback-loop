@@ -17,8 +17,8 @@ function Supported(){
 
             <label>Support?</label><br />
             <input type='number' onChange={ ( event ) => setSupport( event.target.value ) }></input>
-            <Link to='/comments'>
-            <button onClick={ (event) => addSupported () }>Next</button>
+            <Link to={ support ? '/comments' : '/supported'}>
+                <button onClick={ addSupported () }>Next</button>
             </Link>
         </>
 

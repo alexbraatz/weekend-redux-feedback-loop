@@ -18,8 +18,8 @@ function Understand(){
 
             <label>Understanding?</label><br />
             <input type='number' onChange={ ( event ) => setUnderstand( event.target.value ) }></input>
-            <Link to='/supported'>
-                <button onClick={ (event) => addUnderstanding() }>Next</button>
+            <Link to={ understand ? '/supported' : '/understand'}>
+                <button onClick={ addUnderstanding() }>Next</button>
             </Link>
         </>
 
