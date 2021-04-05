@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 function Admin(){
     let userFeedback = useSelector( ( store )=>{
         console.log( 'in useSelector, grabbing store:', store )
-        return store.feedback
+        return store.feedback.flat()
     })
 
     useEffect( () =>{
@@ -16,7 +16,7 @@ function Admin(){
             <h2>Feedback Results!</h2>
             <table>
                 <thead>
-                    <tr>
+                    <tr>  
                         <th>Feeling</th>
                         <th>Comprehension</th>
                         <th>Support</th>
@@ -25,21 +25,18 @@ function Admin(){
                     </tr>
                 </thead>
                 <tbody>
-                    {/* nested map used because i'm putting my database which is an array into another array in redux, pls halp */}
-                    {userFeedback.map( feedback => { return feedback.map( user=>{     
-                        console.log( 'in user:', user )                
+                    {userFeedback.map( ( feedback, i )=>{
                         return (
                             <>
-                                <tr>
-                                    <td key={  user.id  }>{ user.feeling }</td>
-                                    <td>{ user.understanding }</td>
-                                    <td>{ user.support }</td>
-                                    <td>{ user.comments }</td>
+                                <tr key={ feedback.id }>
+                                    <td>{ feedback.understanding }</td>
+                                    <td>{ feedback.support }</td>
+                                    <td>{ feedback.comments }</td>
                                     <td><button>Delete</button></td>
                                 </tr>
                             </>
                         )
-                    })})}
+                    })}
                 </tbody>
             </table>
         </>
