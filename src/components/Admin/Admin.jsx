@@ -25,6 +25,7 @@ function Admin(){
                     </tr>
                 </thead>
                 <tbody>
+                    {/* nested map used because i'm putting my database which is an array into another array in redux, pls halp */}
                     {userFeedback.map( feedback => { return feedback.map( user=>{     
                         console.log( 'in user:', user )                
                         return (
